@@ -4,7 +4,7 @@ This reference lists required skin changes for firmware versions that advance `s
 first. Removals are also listed as code an author may delete. See
 [Versions and skin compatibility](SKIN_ARCHITECTURE.md#versions-and-skin-compatibility) for the version policy.
 
-## 0.1.0
+## 1.0.0
 
 The initial skin API requires the following interfaces:
 
