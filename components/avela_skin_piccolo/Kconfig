@@ -10,4 +10,4 @@ config AVELA_SKIN_COMPONENT
 # the firmware version whose skin API this skin implements (docs/developer/SKINS.md: Compatibility); an official
 # skin's is always the project version (tools/check_skin_api.sh)
 config AVELA_SKIN_API_VERSION
-    default "0.1.0" if AVELA_SKIN_PICCOLO
+    default "1.0.0" if AVELA_SKIN_PICCOLO
