@@ -10,7 +10,7 @@ set(supported_skin_api_versions ">=1.0.0")
 # release. It is what the firmware reports (Info, the update page, the User-Agent); the skin checks below compare its
 # number. cicd/release.sh sets it, tools/check_skin_api.sh checks its form (docs/developer/SKIN_ARCHITECTURE.md:
 # Versions and skin compatibility).
-set(PROJECT_VER "1.0.0")
+set(PROJECT_VER "1.0.1-dev")
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(avela_firmware)
