@@ -1,0 +1,52 @@
+dependencies:
+  espressif/esp-dsp:
+    component_hash: ed9ac175b14e0414399a2b33c525579414b5bad19a2a67b12ea212def96f9a98
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.2'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.8.2
+  espressif/esp_audio_codec:
+    component_hash: a5b9275af74247e3ce536d16a7080e4d77207a185b63e1bea368eb4d57176c2b
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.4'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 2.6.2
+  espressif/mdns:
+    component_hash: b5b30022c46302eab89c1d2e3b6fb5918a627563a7462f0ee284b22b9a934967
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.14.0
+  idf:
+    source:
+      type: idf
+    version: 5.5.5
+  lovyan03/lovyangfx:
+    component_hash: 052a8e1322167033a45ba068f04d3d11b0542d8ac954f491f70f1f59a71fd07d
+    dependencies: []
+    source:
+      git: https://github.com/lovyan03/LovyanGFX.git
+      path: .
+      type: git
+    version: 777b345dfffcef83e2e24cc12e4d4fd9eda36e93
+direct_dependencies:
+- espressif/esp-dsp
+- espressif/esp_audio_codec
+- espressif/mdns
+- idf
+- lovyan03/lovyangfx
+manifest_hash: 6b43928ea4e4d2932b0bfdec8ee7b267456fe1be186fce8234744ddc20dde6ee
+target: esp32
+version: 2.0.0

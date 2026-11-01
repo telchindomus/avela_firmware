@@ -1,0 +1,5 @@
+dependencies:
+  idf: ">=5.5"
+  lovyan03/lovyangfx:
+    git: https://github.com/lovyan03/LovyanGFX.git
+    version: "1.2.33"   # tag; upgrade on purpose

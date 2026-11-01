@@ -1,0 +1,24 @@
+menu "Avela network"
+
+    config AVELA_SETUP_NETWORK_NAME
+        string "Setup network name"
+        default "Avela-setup"
+        help
+            Name of the radio's own Wi-Fi setup network, opened when requested from the Wi-Fi setup screen. It
+            does not open automatically when the home network is unavailable. Joining it gives access to the setup page.
+
+    config AVELA_SETUP_NETWORK_PASSWORD
+        string "Setup network password"
+        default "avela_657"
+        help
+            WPA2 password of the setup network, 8 to 63 characters. Shown on the radio's setup screen and in its
+            QR code.
+
+    config AVELA_HOST_NAME
+        string "Host name"
+        default "avela"
+        help
+            The radio's name on the home network: DHCP host name and mDNS (http://<name>.local). The default: the
+            setup page and the console can save another (Wi-Fi), in force from the next start.
+
+endmenu

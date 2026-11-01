@@ -1,0 +1,18 @@
+# CYD 1.9": ESP32-WROOM, 4 MB flash, no PSRAM
+CONFIG_IDF_TARGET="esp32"
+CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+CONFIG_COMPILER_OPTIMIZATION_PERF=y
+
+# 1 ms ticks for the 5 ms input poll; room on the main task for glyph drawing (alloca of one glyph)
+CONFIG_FREERTOS_HZ=1000
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+
+# The app (Wi-Fi, TLS, the web server, the MP3 decoder) needs more than the default 1 MB: our own table, two 1.94 MB
+# app slots (partitions.csv)
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# A new firmware (over-the-air update) must confirm itself after it ran for a while (avela_firmware_update); if it
+# crashes or restarts before that, the bootloader starts the one that ran before.
+CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE=y

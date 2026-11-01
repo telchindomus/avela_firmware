@@ -1,0 +1,14 @@
+# Unit tests: the firmware's rules, less what Catch2 and test data make pointless:
+# - cppcoreguidelines-avoid-do-while: Catch2's CHECK/REQUIRE macros expand to do { ... } while (false)
+# - readability-magic-numbers, cppcoreguidelines-avoid-magic-numbers: literal inputs and expected values are what a
+#   test case is about; naming each one would hide them
+# - readability-function-cognitive-complexity: counts the branches inside every expanded CHECK
+# - clang-analyzer-optin.core.EnumCastOutOfRange: Catch2's ResultDisposition is a bit set (CHECK_FALSE = two flags
+#   combined), which the analyzer reads as an out-of-range enum value
+InheritParentConfig: true
+Checks: >
+  -cppcoreguidelines-avoid-do-while,
+  -readability-magic-numbers,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -readability-function-cognitive-complexity,
+  -clang-analyzer-optin.core.EnumCastOutOfRange

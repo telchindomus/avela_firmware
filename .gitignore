@@ -1,0 +1,11 @@
+build/
+managed_components/
+sdkconfig
+sdkconfig.old
+build_clang/
+__pycache__/
+build_clang_*/
+CLAUDE.local.md
+agents_chat/
+cicd/.env
+cicd/build/

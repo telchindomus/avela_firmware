@@ -1,0 +1,23 @@
+menu "Avela skin"
+
+    # Every skin component adds its own entry to this choice and sets AVELA_SKIN_COMPONENT and AVELA_SKIN_API_VERSION
+    # for it (docs/developer/SKINS.md); the top-level CMakeLists.txt checks the version and links the chosen skin into
+    # main.
+    choice AVELA_SKIN
+        prompt "Skin"
+        default AVELA_SKIN_PICCOLO
+        help
+            How the UI looks: the skin draws every screen with its own palette, fonts, images and layouts. Each skin
+            is a component (avela_skin_<name>); the official default is avela_skin_piccolo. The skin needs layouts
+            for the board's screen (menuconfig: Avela board); the build stops if it has none.
+    endchoice
+
+    # the chosen skin's component name (set by the skin)
+    config AVELA_SKIN_COMPONENT
+        string
+
+    # the firmware version whose skin API the chosen skin implements (set by the skin)
+    config AVELA_SKIN_API_VERSION
+        string
+
+endmenu

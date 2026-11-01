@@ -1,0 +1,24 @@
+# Code style of the firmware; every file in main/ must be formatted with it (clang-format 19, from esp-clang).
+BasedOnStyle: LLVM
+Standard: c++20
+ColumnLimit: 120
+IndentWidth: 4
+AccessModifierOffset: -4
+IndentCaseLabels: false
+NamespaceIndentation: None
+FixNamespaceComments: true
+PointerAlignment: Left
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterFunction: true
+  SplitEmptyFunction: false
+BreakTemplateDeclarations: Yes
+AlignEscapedNewlines: Left
+InsertBraces: true
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortLambdasOnASingleLine: All
+SpacesBeforeTrailingComments: 2
+SortIncludes: CaseSensitive
+IncludeBlocks: Preserve

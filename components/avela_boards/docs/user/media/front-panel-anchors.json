@@ -1,0 +1,29 @@
+{
+  "width": 1400,
+  "height": 600,
+  "anchors": {
+    "knob": [
+      269.3,
+      296.02
+    ],
+    "back": [
+      468.88,
+      322.66
+    ],
+    "reset": [
+      468.88,
+      199.49
+    ],
+    "speaker": [
+      1130.7,
+      296.02
+    ],
+    "screen": [
+      723.03,
+      262.36
+    ]
+  },
+  "image_sha256": "3fe579ada38af461597855f8b091936eef2706de110326109792f612f6032650",
+  "screen_sha256": "c7085f698832ed5581e47d46d361895a5fa9ca39d4ec65617d33452b4a460593",
+  "kind": "rendered Piccolo enclosure front view with a host-rendered example screen"
+}

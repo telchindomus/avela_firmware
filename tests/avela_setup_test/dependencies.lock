@@ -1,0 +1,20 @@
+dependencies:
+  espressif/catch2:
+    component_hash: 36646ba541ba9b7e8ca841f29fc8480ff839f660448834f1925f3fa55f9c3807
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 3.16.0
+  idf:
+    source:
+      type: idf
+    version: 5.5.5
+direct_dependencies:
+- espressif/catch2
+manifest_hash: 37f621f28bd04ec83ac58e30b5353073ee2ac3f784cd2ad7decd83853f5e2594
+target: linux
+version: 2.0.0

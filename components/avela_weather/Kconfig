@@ -1,0 +1,16 @@
+menu "Avela weather"
+
+    config AVELA_WEATHER
+        bool "Weather"
+        default y
+        help
+            The weather screen (a tile in the screen selector) and its section on the setup page: the place, the
+            units. Data from Open-Meteo (no API key), over HTTPS, while the radio is on the home network.
+
+    config AVELA_WEATHER_REFRESH_MINUTES
+        int "Minutes between updates"
+        depends on AVELA_WEATHER
+        range 5 120
+        default 15
+
+endmenu

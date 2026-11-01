@@ -1,0 +1,10 @@
+menu "Avela clock"
+
+    config AVELA_TIME_ZONE
+        string "Time zone (POSIX TZ)"
+        default "CET-1CEST,M3.5.0,M10.5.0/3"
+        help
+            The local time zone with its daylight-saving rule, as a POSIX TZ string. The default is Central
+            European Time (Poland). The clock itself is set over the internet (SNTP) once Wi-Fi is joined.
+
+endmenu

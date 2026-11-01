@@ -1,0 +1,60 @@
+# Static analysis of our code (main/, components/avela_*) with clang-tidy 19 from esp-clang; see docs/developer/CODING_STANDARD.md.
+# Guidelines: C++ Core Guidelines (cppcoreguidelines-*), SEI CERT C++ (cert-*), plus clang's bug and style checks.
+# Switched off on purpose:
+#   modernize-use-trailing-return-type        style only: `int f()` stays
+#   readability-identifier-length             x, y, dx are the natural names in drawing code
+#   cppcoreguidelines-avoid-magic-numbers     alias of readability-magic-numbers (on; reported once)
+#   readability-math-missing-parentheses      `a + b * c` is plain C++ precedence
+#   readability-uppercase-literal-suffix      `0.5f` stays lower case
+#   cppcoreguidelines-avoid-const-or-ref-data-members
+#                                             references in FrameContext/Ui are the dependencies, never reseated
+#   cppcoreguidelines-pro-bounds-constant-array-index
+#                                             wants gsl::at; indices are wrapped or loop-bounded instead
+#   bugprone-easily-swappable-parameters      (x, y, width, height) everywhere in drawing code
+#   misc-include-cleaner                      doesn't understand ESP-IDF's umbrella headers
+#   cert-err58-cpp                            about exceptions in static constructors; exceptions are off
+Checks: >
+  bugprone-*,
+  cert-*,
+  clang-analyzer-*,
+  cppcoreguidelines-*,
+  misc-*,
+  modernize-*,
+  performance-*,
+  portability-*,
+  readability-*,
+  -modernize-use-trailing-return-type,
+  -readability-identifier-length,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -readability-math-missing-parentheses,
+  -readability-uppercase-literal-suffix,
+  -cppcoreguidelines-avoid-const-or-ref-data-members,
+  -cppcoreguidelines-pro-bounds-constant-array-index,
+  -bugprone-easily-swappable-parameters,
+  -misc-include-cleaner,
+  -cert-err58-cpp
+CheckOptions:
+  # plain data structs with helper methods (Rect, RadioModel) keep their public fields
+  misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic: true
+  cppcoreguidelines-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic: true
+  # Data members: every one starts with m_, private ones also end with _ (m_selected_), public
+  # aggregate fields too (Rect{.m_x = 4}). Constants (static constexpr / static const) are not fields: plain
+  # lower_case. Static data members are not covered by the check (it can't tell their access): name them by hand
+  # like the others (m_revision_).
+  readability-identifier-naming.MemberCase: lower_case
+  readability-identifier-naming.MemberPrefix: m_
+  readability-identifier-naming.PublicMemberCase: lower_case
+  readability-identifier-naming.PublicMemberPrefix: m_
+  readability-identifier-naming.ProtectedMemberCase: lower_case
+  readability-identifier-naming.ProtectedMemberPrefix: m_
+  readability-identifier-naming.ProtectedMemberSuffix: _
+  readability-identifier-naming.PrivateMemberCase: lower_case
+  readability-identifier-naming.PrivateMemberPrefix: m_
+  readability-identifier-naming.PrivateMemberSuffix: _
+  # ESP_ERROR_CHECK and friends expand to branches; count only the code we wrote
+  readability-function-cognitive-complexity.IgnoreMacros: true
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*/avela_firmware/(main|components)/.*'
+# not the unit tests' builds and their downloaded components (Catch2)
+ExcludeHeaderFilterRegex: '.*/(build|managed_components)/.*'
+FormatStyle: file

@@ -1,0 +1,28 @@
+menu "Avela board"
+
+    choice AVELA_BOARD
+        prompt "Board"
+        default AVELA_BOARD_PICCOLO
+        help
+            The board this firmware runs on: the module and what is wired to it (display, knob, back button, pins;
+            components/avela_boards). It brings its screen, which picks the skin's layouts.
+
+        config AVELA_BOARD_PICCOLO
+            bool "Avela Piccolo (CYD 1.9\" ESP32 + ST7789 170x320, EC11 knob)"
+    endchoice
+
+    # the chosen board's header, which names `Board` (main includes it)
+    config AVELA_BOARD_HEADER
+        string
+        default "avela_boards/avela_piccolo.hpp" if AVELA_BOARD_PICCOLO
+
+    # The board's screen (as mounted: size after rotation); the skins keep layouts per screen.
+    config AVELA_SCREEN_LANDSCAPE_320X170
+        bool
+        default y if AVELA_BOARD_PICCOLO
+
+    config AVELA_SCREEN_NAME
+        string
+        default "landscape_320x170" if AVELA_SCREEN_LANDSCAPE_320X170
+
+endmenu
