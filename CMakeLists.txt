@@ -4,13 +4,13 @@ cmake_minimum_required(VERSION 3.16)
 # (>=, >, <=, <, ==, !=). Its lower bound moves to the new version in the commit that makes skins add or change
 # something, with an entry in docs/developer/SKIN_CHANGES.md (docs/developer/SKIN_ARCHITECTURE.md: Versions and skin
 # compatibility).
-set(supported_skin_api_versions ">=0.1.0")
+set(supported_skin_api_versions ">=1.0.0")
 
 # The firmware version: X.Y.Z on a release (tag vX.Y.Z), X.Y.Z-dev on devel between releases, X.Y.Z being the next
 # release. It is what the firmware reports (Info, the update page, the User-Agent); the skin checks below compare its
 # number. cicd/release.sh sets it, tools/check_skin_api.sh checks its form (docs/developer/SKIN_ARCHITECTURE.md:
 # Versions and skin compatibility).
-set(PROJECT_VER "0.1.0-dev")
+set(PROJECT_VER "1.0.0")
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(avela_firmware)
